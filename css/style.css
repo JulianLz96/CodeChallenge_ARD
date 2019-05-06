@@ -5,3 +5,33 @@
 .blanco {
   color: white !important;
 }
+
+.negro {
+  color:  black !important;
+}
+
+.slider {
+  width: 60%;
+  opacity: 0.9;
+  margin: 0 auto;
+}
+
+.gris {
+  color: #ffff !important;
+}
+
+.separator {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+.centrado {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.headers {
+  font-family: 'Roboto';
+  color: #9e16dd;
+}
+

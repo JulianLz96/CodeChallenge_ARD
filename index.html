@@ -33,7 +33,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link blanco" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link blanco" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link blanco" href="#Proyectos">Proyectos</a>
@@ -120,8 +120,8 @@
                                     <p class="card-text">Here we can see a corridor like
                                         in the movie Trin Legacy, kinda Daft Punk.</p>
                                     <span class="social-box">
-                                            <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
-                                            <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
+                                        <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                                        <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
                                     </span>
                                 </div>
                             </div>
@@ -141,8 +141,8 @@
                                     <h4 class="card-title">Qatar night Skycrapers</h4>
                                     <p class="card-text">Here we can see how oil can control the world.</p>
                                     <span class="social-box">
-                                            <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
-                                            <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
+                                        <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                                        <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
                                     </span>
                                 </div>
                             </div>
@@ -153,6 +153,134 @@
         </div>
         </div>
     </section>
+
+    <div id="filterBtn" class="to-right">
+            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+            <button class="btn" onclick="filterSelection('nature')"> Nature</button>
+            <button class="btn" onclick="filterSelection('cars')"> Cars</button>
+            <button class="btn" onclick="filterSelection('people')"> People</button>
+          </div>
+          
+          <!-- Portfolio Gallery Grid -->
+          <div class="row">
+            <div class="column nature">
+              <div class="content">
+                <img src="images/card_2.jpg" alt="Mountains" style="width:100%">
+                <h4>Mountains</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column nature">
+              <div class="content">
+                <img src="images/card_2.jpg" alt="Lights" style="width:100%">
+                <h4>Lights</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column nature">
+              <div class="content">
+                <img src="/images/card_2.jpg" alt="Nature" style="width:100%">
+                <h4>Forest</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+          
+            <div class="column cars">
+              <div class="content">
+                <img src="images/card_2.jpg" alt="Car" style="width:100%">
+                <h4>Retro</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column cars">
+              <div class="content">
+                <img src="images/card_2.jpg" alt="Car" style="width:100%">
+                <h4>Fast</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column cars">
+              <div class="content">
+                <img src="images/card_2.jpg" alt="Car" style="width:100%">
+                <h4>Classic</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+          
+            <div class="column people">
+              <div class="content">
+                <img src="images/card_2.jpg" alt="People" style="width:100%">
+                <h4>Girl</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column people">
+              <div class="content">
+                <img src="images/card_2.jpg" alt="People" style="width:100%">
+                <h4>Man</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column people">
+              <div class="content">
+                <img src="images/card_2.jpg" alt="People" style="width:100%">
+                <h4>Woman</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+          <!-- END GRID -->
+
 </body>
+
+
+<script>
+filterSelection("all") // Execute the function and show all columns
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+// Show filtered elements
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1); 
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("filterBtn");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
 
 </html>
